@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="text-capitalize">{{ title }}</h2>
+                <p class='attribute'><strong>Name: </strong><span id="student-name">{{ student_name }}</span> (<span id="netid"></span>{{ netid }}</span>)</p>
+                <p class='attribute'><strong>Duration: </strong>0ms</p>
+                <p class='attribute'><strong>Summary: </strong>Total: 0, Pass: 0, Fail: 0, Error: 0</p>
+                <p class='attribute'><strong>Grade: </strong>0 / 0 &#x2192; <span id="final-grade">0.00</span></p>
+            </div>
+        </div>
+        <p>We weren't able to run your file. This usually means there's a syntax error somewhere in your program. Try running it in IDLE or come to Office Hours.</p>
+        <p>If below you see a message saying <code>'Timed Out'</code>, it means that your file either took more than 10 seconds to load or more than 10 seconds to be tested.
+        Successful submissions take just a few milliseconds to be loaded and tested. The most common cause of this is an infinite loop somewhere in your program. The second
+        most common cause is modifying parts of the template that say <code>## DO NOT MODIFY</code>. The third most common
+        cause is <b>using code that you do not fully understand.</b> Reminder that it is against the Academic Honesty Policy of our course to copy and paste code or scribe code from
+        <b>any</b> source other than <em>this quarter's class examples and your own work</em>.</p>
+        <p style="color:maroon;">{{ error_message }}</p>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('td').on('click', '.btn', function(e){
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                var $this = $(this);
+                var $nextRow = $this.closest('tr').next('tr');
+                $nextRow.slideToggle("fast");
+                $this.text(function(i, text){
+                    if (text === 'View') {
+                        return 'Hide';
+                    } else {
+                        return 'View';
+                    };
+                });
+            });
+        });
+    </script>
+</body>
+</html
